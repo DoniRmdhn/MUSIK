@@ -149,7 +149,7 @@ Downloading....
                 ctitle = await CHAT_TITLE(ctitle)
                 f2 = open(f'search/{afk}id.txt', 'r')        
                 userid =(f2.read())
-                thumb = await gen_thumb(thumbnail, title, userid, theme, ctitle)
+                thumb = await gen_thumb(videoid)
                 user_id = userid
                 videoid = afk
                 buttons = play_markup(videoid, user_id)
@@ -189,8 +189,8 @@ Downloading....
                 photo=f"downloads/{_chat_}final.png",
                 reply_markup=InlineKeyboardMarkup(buttons),
                 caption=f"""
-<b>▶️ Sekarang memutar:</b> {title}
-<b>⌚ Durasi:</b> {duration}
+<b>🏷 Nama:</b> {title}
+<b>⏱️ Durasi:</b> {duration}
 <b>🎧 Atas permintaan:</b> {username}
 """,
                 )

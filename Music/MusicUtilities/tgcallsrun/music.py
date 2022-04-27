@@ -149,7 +149,7 @@ Downloading....
                 ctitle = await CHAT_TITLE(ctitle)
                 f2 = open(f'search/{afk}id.txt', 'r')        
                 userid =(f2.read())
-                thumb = await gen_thumb(videoid)
+                thumb = await gen_thumb(thumbnail, title, userid, theme, ctitle)
                 user_id = userid
                 videoid = afk
                 buttons = play_markup(videoid, user_id)

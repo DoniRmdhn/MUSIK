@@ -373,7 +373,7 @@ Saya perlu menjadi admin dengan beberapa izin:
         ctitle = message.chat.title
         ctitle = await CHAT_TITLE(ctitle)
         userid = message.from_user.id
-        thumb = await gen_thumb(thumbnail, title, userid, theme, ctitle)
+        thumb = await gen_thumb(videoid)
 
         def my_hook(d):
             if d["status"] == "downloading":
@@ -685,7 +685,7 @@ async def startyuplay(_, CallbackQuery):
     theme = random.choice(themes)
     ctitle = CallbackQuery.message.chat.title
     ctitle = await CHAT_TITLE(ctitle)
-    thumb = await gen_thumb(thumbnail, title, userid, theme, ctitle)
+    thumb = await gen_thumb(videoid)
     await mystic.delete()
     if await is_active_chat(chat_id):
         position = await put(chat_id, file=file)

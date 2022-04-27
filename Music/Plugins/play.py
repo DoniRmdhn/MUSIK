@@ -196,7 +196,7 @@ Kembalikan kembali ke Akun Pengguna Dari Hak Admin.
     global useer
     if chat_id in DISABLED_GROUPS:
         return await message.reply_text(
-            f"😕 **Maap {message.from_user.mention}, Musicnya Dimatiin Sama Admin**" 
+            f"**Maap {message.from_user.mention}, Musicnya Dimatiin Sama Admin**" 
         )
         return
     user_id = message.from_user.id
@@ -434,7 +434,7 @@ Saya perlu menjadi admin dengan beberapa izin:
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 mystic.edit(
-                    f"**Downloaded {title[:50]}.....**\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
+                    f"**📥 Downloaded {title[:50]}.....**\n\n**📚 FileSize:** {size}\n**⚡ Time Taken:** {taken} sec\n\n**📝 Converting File**[__FFmpeg processing__]"
                 )
                 print(f"[{videoid}] Downloaded| Elapsed: {taken} seconds")
 
@@ -457,7 +457,7 @@ Saya perlu menjadi admin dengan beberapa izin:
         what = "Query Given"
         await LOG_CHAT(message, what)
         query = message.text.split(None, 1)[1]
-        mystic = await message.reply_text("**🔎 Pencarian**")
+        mystic = await message.reply_text("**🔎 Pencarian...**")
         try:
             a = VideosSearch(query, limit=5)
             result = (a.result()).get("result")
@@ -520,13 +520,11 @@ Saya perlu menjadi admin dengan beberapa izin:
         await message.reply_photo(
             photo=thumb,
             caption=f"""
-<b>💡 Trek ditambahkan ke antrian</b>
+<b>💡 Trek ditambahkan ke antrian</b> {position}
 
 <b>🏷️ Nama: [{title[:25]}]({link})</b>
 <b>⏱️ Durasi:</b> {duration} \n
 <b>🎧 Atas permintaan: </b>{checking}
-
-<b>#️⃣ Posisi antrian</b> {position}
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -711,14 +709,12 @@ async def startyuplay(_, CallbackQuery):
         m = await CallbackQuery.message.reply_photo(
             photo=thumb,
             caption=f"""
-<b>💡 Trek ditambahkan ke antrian</b>
+<b>💡 Trek ditambahkan ke antrian</b> {position}
 
 <b>🏷 Nama:</b>[{title[:25]}]({url})
 <b>⏱️ Durasi:</b> {duration}
 <b>💡</b> [More Information](https://t.me/{BOT_USERNAME}?start=info_{id})
 <b>🎧 Atas permintaan:</b> {checking}
-
-<b>#️⃣ Posisi antrian</b> {position}
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -744,7 +740,6 @@ async def startyuplay(_, CallbackQuery):
             caption=f"""
 <b>🏷 Nama:</b> [{title[:25]}]({url})
 <b>⏱️ Durasi:</b> {duration}
-<b>💡</b> [More Information](https://t.me/{BOT_USERNAME}?start=info_{id})
 <b>🎧 Atas permintaan:</b> {checking}
 """,
         )
